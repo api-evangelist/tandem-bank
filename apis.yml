@@ -1,0 +1,127 @@
+aid: tandem-bank
+url: https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/apis.yml
+name: Tandem Bank
+kind: company
+description: >-
+  Tandem Bank (Tandem Bank Limited) is a UK app-only challenger and self-styled
+  "greener" digital bank founded in 2014 and headquartered in Blackpool, England,
+  with offices in Cardiff, Durham, and London. It obtained its UK banking licence
+  through the 2018 acquisition of Harrods Bank and has since grown by acquiring
+  Allium Lending Group, Oplo, and Loop Money, offering savings and cash ISAs, green
+  home-improvement and home loans, mortgages, motor finance, and a credit card.
+  Tandem Bank Limited is authorised by the Prudential Regulation Authority and
+  regulated by the Financial Conduct Authority. It is not one of the CMA9 and does
+  not publish a public Open Data reference API; as an FCA-authorised ASPSP it meets
+  UK Open Banking / PSD2 obligations through a dedicated interface provided by Token,
+  conformant to the Open Banking Implementation Entity (OBIE) Read/Write Standard for
+  Account and Transaction Information (AIS), Payment Initiation (PIS), and Confirmation
+  of Funds (CBPII), secured with FAPI-grade OAuth2/OIDC, mutual-TLS, and PSD2 strong
+  customer authentication. Tandem also consumes Open Banking as a TPP via TrueLayer
+  for savings onboarding and transfers.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- FAPI
+- United Kingdom
+- Payments
+- Account Information
+- Challenger Bank
+- Fintech
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: tandem-bank:tandem-bank-account-transaction-information-api
+  name: Tandem Bank Account and Transaction Information API (AIS)
+  description: >-
+    Tandem Bank's Open Banking Account Information Service (AIS) exposing account,
+    balance, transaction, and product data for its credit card and savings products.
+    Delivered through Tandem's PSD2 dedicated interface (provided by Token), conformant
+    to the OBIE Read/Write Account and Transaction API Standard. FAPI-secured
+    (OAuth2/OIDC, mutual-TLS, PSD2 SCA); production base URL is issued per authorised
+    TPP during Token onboarding and is not publicly published. The attached OpenAPI is
+    the shared OBIE standard specification, not a Tandem-proprietary contract.
+  humanURL: https://developer.token.io/
+  tags:
+  - Account Information
+  - AISP
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-standard-account-info-openapi.yaml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-payment-initiation-api
+  name: Tandem Bank Payment Initiation API (PIS)
+  description: >-
+    Tandem Bank's Open Banking Payment Initiation Service (PIS) for initiating
+    domestic and other payments against Tandem accounts. Delivered through Tandem's
+    PSD2 dedicated interface (provided by Token), conformant to the OBIE Read/Write
+    Payment Initiation API Standard. FAPI-secured (OAuth2/OIDC, mutual-TLS, PSD2 SCA);
+    production base URL is issued per authorised TPP during Token onboarding and is not
+    publicly published. The attached OpenAPI is the shared OBIE standard specification,
+    not a Tandem-proprietary contract.
+  humanURL: https://developer.token.io/
+  tags:
+  - Payment Initiation
+  - PISP
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-standard-payment-initiation-openapi.yaml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-confirmation-of-funds-api
+  name: Tandem Bank Confirmation of Funds API (CBPII)
+  description: >-
+    Tandem Bank's Open Banking Confirmation of Funds Service (CBPII) allowing card-based
+    payment instrument issuers to confirm the availability of funds. Delivered through
+    Tandem's PSD2 dedicated interface (provided by Token), conformant to the OBIE
+    Read/Write Confirmation of Funds API Standard. FAPI-secured (OAuth2/OIDC, mutual-TLS,
+    PSD2 SCA); production base URL is issued per authorised TPP during Token onboarding
+    and is not publicly published. The attached OpenAPI is the shared OBIE standard
+    specification, not a Tandem-proprietary contract.
+  humanURL: https://developer.token.io/
+  tags:
+  - Confirmation of Funds
+  - CBPII
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-standard-confirmation-funds-openapi.yaml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+common:
+- type: Website
+  url: https://www.tandem.co.uk/
+- type: OpenBanking
+  url: https://www.tandem.co.uk/save/open-banking-page
+- type: DeveloperPortal
+  url: https://developer.token.io/
+- type: APIStandard
+  url: https://github.com/OpenBankingUK/read-write-api-specs
+- type: LinkedIn
+  url: https://www.linkedin.com/company/tandem-bank/
+- type: Blog
+  url: https://www.tandem.co.uk/blog
+- type: Newsroom
+  url: https://www.tandem.co.uk/newsroom
+- type: Support
+  url: https://www.tandem.co.uk/support
+- type: PrivacyPolicy
+  url: https://www.tandem.co.uk/privacy-notice
+- type: About
+  url: https://www.tandem.co.uk/about
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

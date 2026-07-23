@@ -1,0 +1,125 @@
+aid: tandem-bank
+name: Tandem Bank
+review:
+  question: >-
+    Does Tandem Bank operate a public developer portal and a live UK Open Banking
+    Open Data API, and what is its OBIE Read/Write conformance and authentication model?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Tandem Bank (Tandem Bank Limited) does NOT operate its own public developer
+    portal and does NOT publish a UK Open Banking Open Data API. Tandem is an
+    app-only challenger bank, not one of the CMA9, and has no branch or ATM
+    network, so it is not obliged to and does not expose the OBIE Open Data
+    reference APIs (ATMs, Branches, Personal/Business Current Accounts, etc.). A
+    "Tandevs" developer portal was historically referenced at
+    developer.tandem.co.uk, but that hostname does not resolve (DNS ENOTFOUND) as
+    of the review date.
+
+    As an FCA-authorised ASPSP that issues a credit card and savings products,
+    Tandem meets its PSD2 / UK Open Banking access-to-account obligations through
+    a dedicated interface PROVIDED BY TOKEN (token.io). Third-party providers
+    onboard, obtain sandbox access, and retrieve technical documentation through
+    Token's developer portal at https://developer.token.io/ rather than a
+    Tandem-branded portal. The dedicated interface implements the OBIE Read/Write
+    Standard for Account and Transaction Information (AIS), Payment Initiation
+    (PIS), and Confirmation of Funds (CBPII).
+
+    Separately, Tandem consumes Open Banking as a THIRD-PARTY PROVIDER via
+    TrueLayer for its own savings onboarding, ID verification, transfers, and
+    spending analysis — this is a consumer-side integration, not a published API.
+
+    No Tandem-proprietary OpenAPI contract is publicly downloadable. The three
+    OpenAPI documents harvested into openapi/ are the SHARED OBIE Read/Write
+    STANDARD specifications from github.com/OpenBankingUK/read-write-api-specs
+    (account-info, payment-initiation, confirmation-funds), captured verbatim and
+    clearly labelled as the standard the Tandem/Token interface conforms to — NOT
+    Tandem-issued contracts.
+  authModel:
+    standard: OBIE Read/Write API Standard (UK Open Banking)
+    dedicatedInterfaceProvider: Token (token.io)
+    security:
+      - FAPI-grade OAuth2 / OpenID Connect
+      - Mutual TLS (mTLS) client authentication
+      - PSD2 Strong Customer Authentication (SCA)
+      - eIDAS / OBIE certificate based client onboarding
+    productionBaseURL: >-
+      Not publicly published; issued per authorised TPP during Token onboarding.
+      No base URL was invented.
+  openData:
+    published: false
+    confirmedLiveEndpoint: false
+    confirmedBaseURL: ""
+    note: >-
+      Tandem is not a CMA9 bank and publishes no Open Data API. Probes of
+      candidate hosts (developer.tandem.co.uk, openbanking.tandem.co.uk,
+      ob.tandem.co.uk, api.tandem.co.uk, www.tandem.co.uk/.well-known/open-banking)
+      returned DNS failure or HTTP 404 — no live Open Data endpoint exists.
+  readWrite:
+    conformant: true
+    apis:
+      - Account and Transaction Information (AIS)
+      - Payment Initiation (PIS)
+      - Confirmation of Funds (CBPII)
+    specProvenance: >-
+      Shared OBIE standard specifications (OpenBankingUK/read-write-api-specs),
+      not Tandem-proprietary. Harvested verbatim into openapi/.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: >-
+        OBIE Read/Write REST APIs delivered via Token dedicated interface;
+        production host issued per TPP, not publicly published.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket surface is documented for Tandem's Open Banking interface.
+  probes:
+    - url: https://developer.tandem.co.uk/
+      status: DNS ENOTFOUND (does not resolve)
+    - url: https://www.tandem.co.uk/.well-known/open-banking
+      status: 404
+    - url: https://openbanking.tandem.co.uk/.well-known/open-banking-configuration
+      status: DNS/connection failure
+    - url: https://ob.tandem.co.uk/open-banking/v3.1/aisp/account-access-consents
+      status: DNS/connection failure
+    - url: https://api.tandem.co.uk/open-banking/v2.3/atms
+      status: DNS/connection failure
+    - url: https://developer.token.io/
+      status: 403 (portal exists; blocks unauthenticated crawl)
+    - url: https://www.tandem.co.uk/
+      status: 200
+    - url: https://www.tandem.co.uk/save/open-banking-page
+      status: 200
+    - url: https://github.com/OpenBankingUK/read-write-api-specs
+      status: 200
+sources:
+  - url: https://www.tandem.co.uk/save/open-banking-page
+    type: OpenBanking
+    note: Tandem's Open Banking page; describes TrueLayer (consumer-side TPP) usage, no proprietary API.
+  - url: https://developer.token.io/
+    type: DeveloperPortal
+    note: Token provides Tandem's PSD2 dedicated interface, onboarding, sandbox, and documentation.
+  - url: https://github.com/OpenBankingUK/read-write-api-specs
+    type: APIStandard
+    note: Source of the shared OBIE Read/Write standard specs harvested into openapi/.
+  - url: https://www.openbankingtracker.com/provider/tandem-money-limited
+    type: Reference
+    note: Third-party tracker listing Token as Tandem's interface provider and Salt Edge as an aggregator.
+  - url: https://en.wikipedia.org/wiki/Tandem_Money
+    type: Reference
+    note: Company background, FCA/PRA authorisation, Harrods Bank licence, acquisitions.
+actions:
+  openapiHarvested: true
+  openapiFiles:
+    - openapi/obie-standard-account-info-openapi.yaml
+    - openapi/obie-standard-payment-initiation-openapi.yaml
+    - openapi/obie-standard-confirmation-funds-openapi.yaml
+  reason: >-
+    No Tandem-proprietary spec is publicly available. Captured the shared OBIE
+    Read/Write standard specs (verbatim) as the documented standard Tandem's
+    Token-provided dedicated interface conforms to, clearly labelled as standard
+    rather than a bank contract. No hosts or credentials were invented.
