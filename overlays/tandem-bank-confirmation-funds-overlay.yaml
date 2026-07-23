@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Tandem Bank Confirmation of Funds API (CBPII)
+  version: 1.0.0
+extends: openapi/obie-standard-confirmation-funds-openapi.yaml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: Tandem Bank
+      x-apievangelist-spec-provenance: >-
+        Shared OBIE Read/Write API Standard specification (OpenBankingUK/read-write-api-specs),
+        captured verbatim; the standard Tandem Bank's Token-provided dedicated interface conforms to.
+      x-apievangelist-dedicated-interface-provider: Token (token.io)
+      x-apievangelist-security-model: FAPI + OAuth2/OIDC + mutual-TLS + PSD2 SCA
+      x-apievangelist-production-baseurl: Issued per authorised TPP during Token onboarding; not publicly published.

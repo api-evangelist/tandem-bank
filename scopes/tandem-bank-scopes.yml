@@ -1,0 +1,80 @@
+generated: '2026-07-23'
+method: searched
+source: openapi/obie-standard-account-info-openapi.yaml, openapi/obie-standard-confirmation-funds-openapi.yaml,
+  openapi/obie-standard-payment-initiation-openapi.yaml
+docs: https://openbankinguk.github.io/read-write-api-site3/v4.0/profiles/read-write-data-api-profile.html
+note: >-
+  Scopes are the coarse-grained OAuth2 scopes defined by the OBIE Read/Write API
+  Standard that Tandem Bank's Token-provided dedicated interface conforms to.
+  A TPP's software statement must be permitted the relevant scope: "accounts"
+  for the AIS/Account and Transaction API, "payments" for the PIS/Payment
+  Initiation API, and "fundsconfirmations" for the CBPII/Confirmation of Funds
+  API. Fine-grained permissions are expressed per-request through OBIE intents
+  (account-access-consent, funds-confirmation-consent, and the payment-order
+  consents) authorised by the PSU under PSD2 Strong Customer Authentication,
+  not through additional OAuth scopes.
+schemes:
+- name: TPPOAuth2Security
+  source: openapi/obie-standard-account-info-openapi.yaml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://authserver.example/token
+  description: TPP client credential authorisation flow with the ASPSP
+- name: PSUOAuth2Security
+  source: openapi/obie-standard-account-info-openapi.yaml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authserver.example/authorization
+    tokenUrl: https://authserver.example/token
+  description: OAuth flow, it is required when the PSU needs to perform SCA with the ASPSP when
+    a TPP wants to access an ASPSP resource owned by the PSU
+- name: TPPOAuth2Security
+  source: openapi/obie-standard-confirmation-funds-openapi.yaml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://authserver.example/token
+  description: TPP client credential authorisation flow with the ASPSP
+- name: PSUOAuth2Security
+  source: openapi/obie-standard-confirmation-funds-openapi.yaml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authserver.example/authorization
+    tokenUrl: https://authserver.example/token
+  description: OAuth flow, it is required when the PSU needs to perform SCA with the ASPSP when
+    a TPP wants to access an ASPSP resource owned by the PSU
+- name: TPPOAuth2Security
+  source: openapi/obie-standard-payment-initiation-openapi.yaml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://authserver.example/token
+  description: TPP client credential authorisation flow with the ASPSP
+- name: PSUOAuth2Security
+  source: openapi/obie-standard-payment-initiation-openapi.yaml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authserver.example/authorization
+    tokenUrl: https://authserver.example/token
+  description: OAuth flow, it is required when the PSU needs to perform SCA with the ASPSP when
+    a TPP wants to access an ASPSP resource owned by the PSU
+scopes:
+- scope: accounts
+  description: Ability to read Accounts information
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/obie-standard-account-info-openapi.yaml
+- scope: fundsconfirmations
+  description: Funds confirmation entitlement
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/obie-standard-confirmation-funds-openapi.yaml
+- scope: payments
+  description: Generic payment scope
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/obie-standard-payment-initiation-openapi.yaml

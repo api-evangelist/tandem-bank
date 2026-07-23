@@ -1,0 +1,26 @@
+generated: '2026-07-23'
+method: searched
+source: OBIE Read/Write API Standard docs + review.yml
+note: >-
+  Tandem Bank does not publish its own API lifecycle/versioning policy; its
+  dedicated interface tracks the OBIE Read/Write API Standard (delivered via
+  Token). Values below reflect that standard's versioning and the interface
+  operating model. No Tandem-branded status page or deprecation policy page is
+  publicly published.
+versioning:
+  scheme: uri-path
+  current: v4.0 (spec version 4.0.1)
+  authority: Open Banking Implementation Entity (OBIE) Read/Write API Standard
+  docs: https://openbankinguk.github.io/read-write-api-site3/v4.0/profiles/read-write-data-api-profile.html
+  standard_repo: https://github.com/OpenBankingUK/read-write-api-specs
+deprecation:
+  policy: OBIE standard version-management process; superseded versions are retired on the OBIE roadmap timeline.
+  sunset_header: false
+  standard_policy_url: https://standards.openbanking.org.uk/
+sla:
+  note: >-
+    ASPSP dedicated-interface availability and performance are regulated under
+    PSD2 / FCA (RTS on SCA & CSC) and monitored via OBIE MI reporting; no public
+    per-TPP SLA page is published by Tandem.
+status_page: null
+deprecated_operations: []

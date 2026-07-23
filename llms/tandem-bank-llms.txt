@@ -1,0 +1,29 @@
+# Tandem Bank
+
+> Tandem Bank Limited is a UK app-only "greener" challenger bank (founded 2014, Blackpool) offering savings, cash ISAs, green home-improvement and home loans, mortgages, motor finance, and a credit card. As an FCA-authorised ASPSP it meets its PSD2 / UK Open Banking access-to-account obligations through a dedicated interface provided by Token (token.io), conformant to the OBIE Read/Write API Standard for Account and Transaction Information (AIS), Payment Initiation (PIS), and Confirmation of Funds (CBPII). Tandem is not a CMA9 bank and publishes no public Open Data reference API; production base URLs are issued per authorised TPP during Token onboarding and are not publicly published. The OpenAPI documents here are the shared OBIE standard specifications the interface conforms to, not Tandem-proprietary contracts.
+
+## APIs
+- [Account and Transaction Information API (AIS)](https://developer.token.io/): OBIE Read/Write account, balance, transaction, and product data. Scope: accounts.
+- [Payment Initiation API (PIS)](https://developer.token.io/): OBIE Read/Write domestic/international/scheduled/standing/file payment initiation. Scope: payments. Requires x-idempotency-key.
+- [Confirmation of Funds API (CBPII)](https://developer.token.io/): OBIE Read/Write confirmation of available funds. Scope: fundsconfirmations.
+
+## Specs
+- [AIS OpenAPI (OBIE R/W v4.0.1)](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/openapi/obie-standard-account-info-openapi.yaml)
+- [PIS OpenAPI (OBIE R/W v4.0.1)](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/openapi/obie-standard-payment-initiation-openapi.yaml)
+- [CBPII OpenAPI (OBIE R/W v4.0.1)](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/openapi/obie-standard-confirmation-funds-openapi.yaml)
+
+## Artifacts
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/authentication/tandem-bank-authentication.yml)
+- [OAuth scopes](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/scopes/tandem-bank-scopes.yml)
+- [API conventions (idempotency, pagination, tracing)](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/conventions/tandem-bank-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/errors/tandem-bank-problem-types.yml)
+- [Conformance (FAPI, PSD2, OIDC, OBIE)](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/conformance/tandem-bank-conformance.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/data-model/tandem-bank-data-model.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/lifecycle/tandem-bank-lifecycle.yml)
+
+## Docs
+- [Token developer portal (dedicated interface)](https://developer.token.io/)
+- [Token API reference](https://reference.token.io/)
+- [OBIE Read/Write API Standard](https://github.com/OpenBankingUK/read-write-api-specs)
+- [Tandem Open Banking page](https://www.tandem.co.uk/save/open-banking-page)
+- [Tandem website](https://www.tandem.co.uk/)

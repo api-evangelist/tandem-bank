@@ -1,0 +1,58 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-standard-account-info-openapi.yaml, openapi/obie-standard-payment-initiation-openapi.yaml, openapi/obie-standard-confirmation-funds-openapi.yaml
+format: obie-error
+docs: https://openbankinguk.github.io/read-write-api-site3/v4.0/references/errors.html
+note: >-
+  Error semantics are defined by the OBIE Read/Write API Standard that Tandem
+  Bank's Token-provided dedicated interface conforms to — NOT an RFC 9457
+  problem+json envelope. Non-2xx bodies use the OBErrorResponse1 structure
+  (Code, Id, Message, Errors[]), where each Errors[] entry carries an ErrorCode
+  drawn from the OBIE OBExternalStatusReason1Code enumeration plus a Message and
+  optional JSON Path and remediation Url. The HTTP status table below is derived
+  from the response objects declared across the three OBIE specifications.
+envelope:
+  schema: OBErrorResponse1
+  fields:
+    - name: Code
+      description: High-level textual error code categorising the error (deprecated in v4.0).
+    - name: Id
+      description: Unique reference for the error instance, for audit/support.
+    - name: Message
+      description: High-level human-readable error message.
+    - name: Errors
+      description: Array of OBError1 detail entries (ErrorCode, Message, Path, Url).
+problems:
+  - status: 400
+    title: Bad Request
+    description: Request is malformed, fails schema validation, or violates a business rule; detail codes in Errors[].
+  - status: 401
+    title: Unauthorized
+    description: Missing, expired, or invalid access token / SCA authorisation.
+  - status: 403
+    title: Forbidden
+    description: Token or client lacks the required scope/entitlement for the resource.
+  - status: 404
+    title: Not Found
+    description: Referenced consent, account, payment, or resource id does not exist.
+  - status: 405
+    title: Method Not Allowed
+    description: HTTP method not supported on the resource.
+  - status: 406
+    title: Not Acceptable
+    description: Requested representation (Accept header) cannot be produced.
+  - status: 409
+    title: Conflict
+    description: Idempotency-key reuse with a different payload, or resource state conflict.
+  - status: 415
+    title: Unsupported Media Type
+    description: Request Content-Type is not supported (e.g. non-JSON / non-JOSE body).
+  - status: 422
+    title: Unprocessable Entity
+    description: Semantically invalid request — e.g. rejected payment, unsupported scheme, business validation failure.
+  - status: 429
+    title: Too Many Requests
+    description: Rate limit exceeded; retry per Retry-After.
+  - status: 500
+    title: Internal Server Error
+    description: Unexpected ASPSP/dedicated-interface error; safe to retry idempotent reads.

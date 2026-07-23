@@ -1,0 +1,16 @@
+generated: '2026-07-23'
+method: generated
+source: openapi/*.yaml (OBIE Read/Write v4.0.1) + conventions/ + errors/
+skills:
+  - file: tandem-bank-account-information-access.md
+    name: Access account and transaction information (AIS)
+    api: openapi/obie-standard-account-info-openapi.yaml
+    operations: [CreateAccountAccessConsents, GetAccountAccessConsentsConsentId, GetAccounts, GetAccountsAccountId, GetAccountsAccountIdBalances, GetAccountsAccountIdTransactions]
+  - file: tandem-bank-domestic-payment.md
+    name: Initiate a domestic payment (PIS)
+    api: openapi/obie-standard-payment-initiation-openapi.yaml
+    operations: [CreateDomesticPaymentConsents, GetDomesticPaymentConsentsConsentId, CreateDomesticPayments, GetDomesticPaymentsDomesticPaymentId]
+  - file: tandem-bank-confirmation-of-funds.md
+    name: Confirm availability of funds (CBPII)
+    api: openapi/obie-standard-confirmation-funds-openapi.yaml
+    operations: [CreateFundsConfirmationConsents, GetFundsConfirmationConsentsConsentId, CreateFundsConfirmations, DeleteFundsConfirmationConsentsConsentId]

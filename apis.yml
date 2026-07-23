@@ -53,6 +53,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/obie-standard-account-info-openapi.yaml
+  - type: Overlay
+    url: overlays/tandem-bank-account-info-overlay.yaml
   - type: Documentation
     url: https://developer.token.io/
   - type: APIReference
@@ -75,6 +77,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/obie-standard-payment-initiation-openapi.yaml
+  - type: Overlay
+    url: overlays/tandem-bank-payment-initiation-overlay.yaml
   - type: Documentation
     url: https://developer.token.io/
   - type: APIReference
@@ -97,11 +101,41 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/obie-standard-confirmation-funds-openapi.yaml
+  - type: Overlay
+    url: overlays/tandem-bank-confirmation-funds-overlay.yaml
   - type: Documentation
     url: https://developer.token.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: DomainSecurity
+  url: security/tandem-bank-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/tandem-bank-agentic-access.yml
+- type: OAuthScopes
+  url: scopes/tandem-bank-scopes.yml
+- type: Authentication
+  url: authentication/tandem-bank-authentication.yml
+- type: Conventions
+  url: conventions/tandem-bank-conventions.yml
+- type: Idempotency
+  url: conventions/tandem-bank-conventions.yml
+- type: ErrorCatalog
+  url: errors/tandem-bank-problem-types.yml
+- type: Conformance
+  url: conformance/tandem-bank-conformance.yml
+- type: DataModel
+  url: data-model/tandem-bank-data-model.yml
+- type: Lifecycle
+  url: lifecycle/tandem-bank-lifecycle.yml
+- type: MCPServer
+  url: mcp/tandem-bank-mcp.yml
+- type: LLMsTxt
+  url: llms/tandem-bank-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: GettingStarted
+  url: https://developer.token.io/token_tpp_sdk_doc/content/a-tpp_onboarding/sdk_intro.htm
 - type: Website
   url: https://www.tandem.co.uk/
 - type: OpenBanking

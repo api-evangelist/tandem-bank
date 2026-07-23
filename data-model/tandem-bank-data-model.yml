@@ -1,0 +1,115 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/*.yaml (OBIE Read/Write v4.0.1 schemas + path structure)
+note: >-
+  Entity-relationship graph derived from the OBIE Read/Write API resource paths
+  and schemas that Tandem Bank's dedicated interface conforms to. Entities are
+  grouped by API. Relationships are inferred from URI structure (AccountId,
+  ConsentId, and payment/order resource ids) — the OBIE model is consent-anchored:
+  a TPP first creates a consent resource, the PSU authorises it under SCA, and
+  data/payment resources are then accessed against that authorised consent.
+id_conventions:
+  account: AccountId (opaque, ASPSP-assigned)
+  consent: ConsentId (per intent type)
+  payment: DomesticPaymentId / InternationalPaymentId / FilePaymentId (+ scheduled/standing variants)
+entities:
+  - name: AccountAccessConsent
+    api: AIS
+    key: ConsentId
+    operations: [CreateAccountAccessConsents, GetAccountAccessConsentsConsentId, DeleteAccountAccessConsentsConsentId]
+  - name: Account
+    api: AIS
+    key: AccountId
+    operations: [GetAccounts, GetAccountsAccountId]
+  - name: Balance
+    api: AIS
+    operations: [GetBalances, GetAccountsAccountIdBalances]
+  - name: Transaction
+    api: AIS
+    operations: [GetTransactions, GetAccountsAccountIdTransactions]
+  - name: Beneficiary
+    api: AIS
+    operations: [GetBeneficiaries, GetAccountsAccountIdBeneficiaries]
+  - name: DirectDebit
+    api: AIS
+    operations: [GetDirectDebits, GetAccountsAccountIdDirectDebits]
+  - name: StandingOrder
+    api: AIS
+    operations: [GetStandingOrders, GetAccountsAccountIdStandingOrders]
+  - name: ScheduledPayment
+    api: AIS
+    operations: [GetScheduledPayments, GetAccountsAccountIdScheduledPayments]
+  - name: Statement
+    api: AIS
+    operations: [GetStatements, GetAccountsAccountIdStatements, GetAccountsAccountIdStatementsStatementId]
+  - name: Party
+    api: AIS
+    operations: [GetParty, GetAccountsAccountIdParty, GetAccountsAccountIdParties]
+  - name: Product
+    api: AIS
+    operations: [GetProducts, GetAccountsAccountIdProduct]
+  - name: Offer
+    api: AIS
+    operations: [GetOffers, GetAccountsAccountIdOffers]
+  - name: DomesticPaymentConsent
+    api: PIS
+    key: ConsentId
+    operations: [CreateDomesticPaymentConsents, GetDomesticPaymentConsentsConsentId, GetDomesticPaymentConsentsConsentIdFundsConfirmation]
+  - name: DomesticPayment
+    api: PIS
+    key: DomesticPaymentId
+    operations: [CreateDomesticPayments, GetDomesticPaymentsDomesticPaymentId, GetDomesticPaymentsDomesticPaymentIdPaymentDetails]
+  - name: FundsConfirmationConsent
+    api: CBPII
+    key: ConsentId
+    operations: [CreateFundsConfirmationConsents, GetFundsConfirmationConsentsConsentId, DeleteFundsConfirmationConsentsConsentId]
+  - name: FundsConfirmation
+    api: CBPII
+    operations: [CreateFundsConfirmations]
+relationships:
+  - from: Account
+    to: AccountAccessConsent
+    type: belongs_to
+    via: ConsentId
+    note: Account data is only accessible under an authorised account-access-consent.
+  - from: Balance
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: Transaction
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: Beneficiary
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: DirectDebit
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: StandingOrder
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: Statement
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: Party
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: Product
+    to: Account
+    type: belongs_to
+    via: AccountId
+  - from: DomesticPayment
+    to: DomesticPaymentConsent
+    type: belongs_to
+    via: ConsentId
+    note: A payment can only be created once its consent is authorised by the PSU under SCA.
+  - from: FundsConfirmation
+    to: FundsConfirmationConsent
+    type: belongs_to
+    via: ConsentId

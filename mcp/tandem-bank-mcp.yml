@@ -1,0 +1,304 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+source: openapi/*.yaml (OBIE Read/Write v4.0.1)
+note: >-
+  Candidate MCP tool surface DERIVED one-to-one from the OBIE Read/Write
+  operations Tandem Bank's Token-provided dedicated interface exposes. Tandem
+  operates no public hosted MCP server; this is a proposed agent tool mapping
+  whose real inputSchema for each tool is the backing operation's parameters +
+  requestBody in the referenced OpenAPI. Live access is FAPI/mTLS/PSD2-SCA gated
+  and provisioned per authorised TPP via Token onboarding.
+server:
+  name: tandem-bank
+  transport: http
+  url: null   # no published MCP server
+tools:
+  - name: create_account_access_consents
+    description: Create an Account Access Consent
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#CreateAccountAccessConsents
+  - name: get_account_access_consents_consent_id
+    description: Get an Account Access Consent
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountAccessConsentsConsentId
+  - name: delete_account_access_consents_consent_id
+    description: Delete an Account Access Consent
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#DeleteAccountAccessConsentsConsentId
+  - name: get_accounts
+    description: Get Accounts
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccounts
+  - name: get_accounts_account_id
+    description: Get an Account by AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountId
+  - name: get_accounts_account_id_balances
+    description: Get Balances for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdBalances
+  - name: get_accounts_account_id_beneficiaries
+    description: Get Beneficiaries for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdBeneficiaries
+  - name: get_accounts_account_id_direct_debits
+    description: Get Direct Debits for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdDirectDebits
+  - name: get_accounts_account_id_offers
+    description: Get Offers for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdOffers
+  - name: get_accounts_account_id_parties
+    description: Get Parties for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdParties
+  - name: get_accounts_account_id_party
+    description: Get Party for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdParty
+  - name: get_accounts_account_id_product
+    description: Get Product for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdProduct
+  - name: get_accounts_account_id_scheduled_payments
+    description: Get Scheduled Payments for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdScheduledPayments
+  - name: get_accounts_account_id_standing_orders
+    description: Get Standing Orders for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdStandingOrders
+  - name: get_accounts_account_id_statements
+    description: Get Statements for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdStatements
+  - name: get_accounts_account_id_statements_statement_id
+    description: Get Statement by StatementId for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdStatementsStatementId
+  - name: get_accounts_account_id_statements_statement_id_file
+    description: Get Statement file by StatementId for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdStatementsStatementIdFile
+  - name: get_accounts_account_id_statements_statement_id_transactions
+    description: Get Statement Transactions for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdStatementsStatementIdTransactions
+  - name: get_accounts_account_id_transactions
+    description: Get Transactions for an AccountId
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetAccountsAccountIdTransactions
+  - name: get_balances
+    description: Get Balances
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetBalances
+  - name: get_beneficiaries
+    description: Get Beneficiaries
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetBeneficiaries
+  - name: get_direct_debits
+    description: Get Direct Debits
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetDirectDebits
+  - name: get_offers
+    description: Get Offers
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetOffers
+  - name: get_party
+    description: Get Party
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetParty
+  - name: get_products
+    description: Get Products
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetProducts
+  - name: get_scheduled_payments
+    description: Get Scheduled Payments
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetScheduledPayments
+  - name: get_standing_orders
+    description: Get Standing Orders
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetStandingOrders
+  - name: get_statements
+    description: Get Statements
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetStatements
+  - name: get_transactions
+    description: Get Transactions
+    scope: accounts
+    source_operation: openapi/obie-standard-account-info-openapi.yaml#GetTransactions
+  - name: create_domestic_payment_consents
+    description: Create a Domestic Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateDomesticPaymentConsents
+  - name: get_domestic_payment_consents_consent_id
+    description: Get a Domestic Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticPaymentConsentsConsentId
+  - name: get_domestic_payment_consents_consent_id_funds_confirmation
+    description: Confirm availability of funds for a Domestic Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticPaymentConsentsConsentIdFundsConfirmation
+  - name: create_domestic_payments
+    description: Initiate a Domestic Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateDomesticPayments
+  - name: get_domestic_payments_domestic_payment_id
+    description: Get a Domestic Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticPaymentsDomesticPaymentId
+  - name: get_domestic_payments_domestic_payment_id_payment_details
+    description: Get details of a Domestic Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticPaymentsDomesticPaymentIdPaymentDetails
+  - name: create_domestic_scheduled_payment_consents
+    description: Create a Domestic Scheduled Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateDomesticScheduledPaymentConsents
+  - name: get_domestic_scheduled_payment_consents_consent_id
+    description: Get a Domestic Scheduled Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticScheduledPaymentConsentsConsentId
+  - name: create_domestic_scheduled_payments
+    description: Initiate a Domestic Scheduled Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateDomesticScheduledPayments
+  - name: get_domestic_scheduled_payments_domestic_scheduled_payment_id
+    description: Get a Domestic Scheduled Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticScheduledPaymentsDomesticScheduledPaymentId
+  - name: get_domestic_scheduled_payments_domestic_scheduled_payment_id_payment_details
+    description: Get details of a Domestic Scheduled Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticScheduledPaymentsDomesticScheduledPaymentIdPaymentDetails
+  - name: create_domestic_standing_order_consents
+    description: Create a Domestic Standing Order Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateDomesticStandingOrderConsents
+  - name: get_domestic_standing_order_consents_consent_id
+    description: Get a Domestic Standing Order Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticStandingOrderConsentsConsentId
+  - name: create_domestic_standing_orders
+    description: Submit a Domestic Standing Order
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateDomesticStandingOrders
+  - name: get_domestic_standing_orders_domestic_standing_order_id
+    description: Get a Domestic Standing Order
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticStandingOrdersDomesticStandingOrderId
+  - name: get_domestic_standing_orders_domestic_standing_order_id_payment_details
+    description: Get details of a Domestic Standing Order Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetDomesticStandingOrdersDomesticStandingOrderIdPaymentDetails
+  - name: create_file_payment_consents
+    description: Create a File Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateFilePaymentConsents
+  - name: get_file_payment_consents_consent_id
+    description: Get a File Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetFilePaymentConsentsConsentId
+  - name: create_file_payment_consents_consent_id_file
+    description: Upload a File for a ConsentId
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateFilePaymentConsentsConsentIdFile
+  - name: get_file_payment_consents_consent_id_file
+    description: Get a File Payment Consent's Uploaded File
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetFilePaymentConsentsConsentIdFile
+  - name: create_file_payments
+    description: Submit a File Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateFilePayments
+  - name: get_file_payments_file_payment_id
+    description: Get a File Payment by FilePaymentId
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetFilePaymentsFilePaymentId
+  - name: get_file_payments_file_payment_id_payment_details
+    description: Get payment details for a File Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetFilePaymentsFilePaymentIdPaymentDetails
+  - name: get_file_payments_file_payment_id_report_file
+    description: Get a File Payment's Report File
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetFilePaymentsFilePaymentIdReportFile
+  - name: create_international_payment_consents
+    description: Create an International Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateInternationalPaymentConsents
+  - name: get_international_payment_consents_consent_id
+    description: Get an International Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalPaymentConsentsConsentId
+  - name: get_international_payment_consents_consent_id_funds_confirmation
+    description: Confirm Funds Availability for an International Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalPaymentConsentsConsentIdFundsConfirmation
+  - name: create_international_payments
+    description: Initiate an International Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateInternationalPayments
+  - name: get_international_payments_international_payment_id
+    description: Get an International Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalPaymentsInternationalPaymentId
+  - name: get_international_payments_international_payment_id_payment_details
+    description: Get details of an International Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalPaymentsInternationalPaymentIdPaymentDetails
+  - name: create_international_scheduled_payment_consents
+    description: Create an International Scheduled Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateInternationalScheduledPaymentConsents
+  - name: get_international_scheduled_payment_consents_consent_id
+    description: Get an International Scheduled Payment Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalScheduledPaymentConsentsConsentId
+  - name: get_international_scheduled_payment_consents_consent_id_funds_confirmation
+    description: Confirm Funds Availability for an International Scheduled Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalScheduledPaymentConsentsConsentIdFundsConfirmation
+  - name: create_international_scheduled_payments
+    description: Initiate an International Scheduled Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateInternationalScheduledPayments
+  - name: get_international_scheduled_payments_international_scheduled_payment_id
+    description: Get an International Scheduled Payment
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalScheduledPaymentsInternationalScheduledPaymentId
+  - name: create_international_standing_order_consents
+    description: Create an International Standing Order Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateInternationalStandingOrderConsents
+  - name: get_international_standing_order_consents_consent_id
+    description: Get an International Standing Order Consent
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalStandingOrderConsentsConsentId
+  - name: create_international_standing_orders
+    description: Submit an International Standing Order
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#CreateInternationalStandingOrders
+  - name: get_international_standing_orders_international_standing_order_payment_id
+    description: Get an International Standing Order
+    scope: payments
+    source_operation: openapi/obie-standard-payment-initiation-openapi.yaml#GetInternationalStandingOrdersInternationalStandingOrderPaymentId
+  - name: create_funds_confirmation_consents
+    description: Create a Funds Confirmation Consent
+    scope: fundsconfirmations
+    source_operation: openapi/obie-standard-confirmation-funds-openapi.yaml#CreateFundsConfirmationConsents
+  - name: get_funds_confirmation_consents_consent_id
+    description: Get a Funds Confirmation Consent
+    scope: fundsconfirmations
+    source_operation: openapi/obie-standard-confirmation-funds-openapi.yaml#GetFundsConfirmationConsentsConsentId
+  - name: delete_funds_confirmation_consents_consent_id
+    description: Delete a Funds Confirmation Consent
+    scope: fundsconfirmations
+    source_operation: openapi/obie-standard-confirmation-funds-openapi.yaml#DeleteFundsConfirmationConsentsConsentId
+  - name: create_funds_confirmations
+    description: Create a Funds Confirmation Request
+    scope: fundsconfirmations
+    source_operation: openapi/obie-standard-confirmation-funds-openapi.yaml#CreateFundsConfirmations

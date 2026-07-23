@@ -1,0 +1,45 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/*.yaml + review.yml (Tandem/Token dedicated-interface auth model)
+note: >-
+  Cross-cutting standards conformance for Tandem Bank's UK Open Banking dedicated
+  interface (provided by Token), derived from the harvested OBIE Read/Write v4.0.1
+  specifications and the documented FAPI/PSD2 security model. These are standards
+  the interface conforms to, not published certification claims.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securitySchemes declare oauth2 (TPPOAuth2Security clientCredentials, PSUOAuth2Security authorizationCode).
+  - id: oidc
+    conforms: true
+    evidence: OBIE Read/Write profile requires OpenID Connect; authorization-code/hybrid flow issues id_token for PSU SCA.
+  - id: fapi
+    conforms: true
+    evidence: OBIE Read/Write Standard mandates FAPI-grade security (FAPI 1.0 Advanced) for ASPSP dedicated interfaces; review.yml authModel.
+  - id: psd2
+    conforms: true
+    evidence: FCA-authorised ASPSP meeting PSD2 access-to-account (XS2A) via a dedicated interface with Strong Customer Authentication.
+  - id: obie-read-write
+    conforms: true
+    evidence: Specs are the OBIE Read/Write API Standard v4.0.1 (AIS, PIS, CBPII) delivered via Token.
+  - id: mutual-tls
+    conforms: true
+    evidence: eIDAS/OBIE certificate-based mTLS client authentication (review.yml authModel.security).
+  - id: idempotency
+    conforms: true
+    evidence: PIS write operations require the x-idempotency-key header (24h validity) per OBIE.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use the OBIE OBErrorResponse1 envelope, not application/problem+json.
+  - id: message-signing-jws
+    conforms: true
+    evidence: Payment requests carry x-jws-signature (detached JWS) and accept application/jose+jwe payloads.
+  - id: pagination
+    conforms: true
+    evidence: Collection responses expose OBIE Links/Meta (Self/First/Prev/Next/Last, TotalPages) for paging.
+  - id: fhir-r4
+    conforms: false
+  - id: scim
+    conforms: false
+  - id: odata
+    conforms: false

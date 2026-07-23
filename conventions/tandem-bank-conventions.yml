@@ -1,0 +1,48 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/*.yaml (OBIE Read/Write v4.0.1) + review.yml auth model
+docs: https://openbankinguk.github.io/read-write-api-site3/v4.0/profiles/read-write-data-api-profile.html
+note: >-
+  Cross-cutting request/response semantics for Tandem Bank's Token-provided
+  OBIE Read/Write dedicated interface, derived from the harvested standard specs.
+authentication:
+  style: FAPI-grade OAuth2 / OpenID Connect
+  flows: [clientCredentials (TPP), authorizationCode (PSU SCA)]
+  transport_security: mutual-TLS (eIDAS/OBIE certificates)
+  scopes: [accounts, payments, fundsconfirmations]
+  consent_model: OBIE intents (account-access-consent, funds-confirmation-consent, payment-order consents)
+  cross_reference: authentication/tandem-bank-authentication.yml, scopes/tandem-bank-scopes.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  scope: PIS write operations (payment and consent creation)
+  retention: 24 hours
+  behavior: A request is processed only once per x-idempotency-key within the validity window; reuse with a changed payload yields 4xx.
+  source_parameter: openapi/obie-standard-payment-initiation-openapi.yaml#/components/parameters/x-idempotency-key
+request_signing:
+  detached_jws_header: x-jws-signature
+  jose_payload: application/jose+jwe accepted on write bodies
+pagination:
+  style: link-based (OBIE)
+  response_links: [Self, First, Prev, Next, Last]
+  response_meta: [TotalPages, FirstAvailableDateTime, LastAvailableDateTime]
+  request_params: [fromBookingDateTime, toBookingDateTime]
+request_tracing:
+  interaction_id_header: x-fapi-interaction-id
+  auth_date_header: x-fapi-auth-date
+  customer_ip_header: x-fapi-customer-ip-address
+  customer_user_agent_header: x-customer-user-agent
+versioning:
+  scheme: uri-path
+  current: v4.0 (spec version 4.0.1)
+  path_prefix: /open-banking/v4.0/{aisp|pisp|cbpii}
+  authority: OBIE Read/Write API Standard
+error_envelope:
+  schema: OBErrorResponse1
+  detail_code_source: OBExternalStatusReason1Code
+  cross_reference: errors/tandem-bank-problem-types.yml
+rate_limiting:
+  signal: HTTP 429 with Retry-After; ASPSP-specific limits set during Token onboarding (not publicly published).
+media_types:
+  request: [application/json, "application/json; charset=utf-8", application/jose+jwe]
+  response: [application/json, "application/json; charset=utf-8"]
