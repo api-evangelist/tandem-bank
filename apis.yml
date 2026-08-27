@@ -47,79 +47,398 @@ created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
 apis:
-- aid: tandem-bank:tandem-bank-account-transaction-information-api
-  name: Tandem Bank Account and Transaction Information API (AIS)
+- aid: tandem-bank:tandem-bank-account-access-consents-api
+  name: Tandem Bank Account Access Consents API
   description: >-
-    Tandem Bank's Open Banking Account Information Service (AIS) exposing account,
-    balance, transaction, and product data for its credit card and savings products.
-    Delivered through Tandem's PSD2 dedicated interface (provided by Token), conformant
-    to the OBIE Read/Write Account and Transaction API Standard. FAPI-secured
-    (OAuth2/OIDC, mutual-TLS, PSD2 SCA); production base URL is issued per authorised
-    TPP during Token onboarding and is not publicly published. The attached OpenAPI is
-    the shared OBIE standard specification, not a Tandem-proprietary contract.
+    The Account Access Consents API from Tandem Bank — 2 operation(s) for account access consents.
   humanURL: https://developer.token.io/
   tags:
-  - Account Information
-  - AISP
-  - Open Banking
+  - Account Access Consents
   properties:
   - type: OpenAPI
-    url: openapi/obie-standard-account-info-openapi.yaml
-  - type: Overlay
-    url: overlays/tandem-bank-account-info-overlay.yaml
+    url: openapi/tandem-bank-account-access-consents-api-openapi.yml
   - type: Documentation
     url: https://developer.token.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
-- aid: tandem-bank:tandem-bank-payment-initiation-api
-  name: Tandem Bank Payment Initiation API (PIS)
-  description: >-
-    Tandem Bank's Open Banking Payment Initiation Service (PIS) for initiating
-    domestic and other payments against Tandem accounts. Delivered through Tandem's
-    PSD2 dedicated interface (provided by Token), conformant to the OBIE Read/Write
-    Payment Initiation API Standard. FAPI-secured (OAuth2/OIDC, mutual-TLS, PSD2 SCA);
-    production base URL is issued per authorised TPP during Token onboarding and is not
-    publicly published. The attached OpenAPI is the shared OBIE standard specification,
-    not a Tandem-proprietary contract.
+- aid: tandem-bank:tandem-bank-accounts-api
+  name: Tandem Bank Accounts API
+  description: The Accounts API from Tandem Bank — 2 operation(s) for accounts.
   humanURL: https://developer.token.io/
   tags:
-  - Payment Initiation
-  - PISP
-  - Open Banking
+  - Accounts
   properties:
   - type: OpenAPI
-    url: openapi/obie-standard-payment-initiation-openapi.yaml
-  - type: Overlay
-    url: overlays/tandem-bank-payment-initiation-overlay.yaml
+    url: openapi/tandem-bank-accounts-api-openapi.yml
   - type: Documentation
     url: https://developer.token.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
-- aid: tandem-bank:tandem-bank-confirmation-of-funds-api
-  name: Tandem Bank Confirmation of Funds API (CBPII)
-  description: >-
-    Tandem Bank's Open Banking Confirmation of Funds Service (CBPII) allowing card-based
-    payment instrument issuers to confirm the availability of funds. Delivered through
-    Tandem's PSD2 dedicated interface (provided by Token), conformant to the OBIE
-    Read/Write Confirmation of Funds API Standard. FAPI-secured (OAuth2/OIDC, mutual-TLS,
-    PSD2 SCA); production base URL is issued per authorised TPP during Token onboarding
-    and is not publicly published. The attached OpenAPI is the shared OBIE standard
-    specification, not a Tandem-proprietary contract.
+- aid: tandem-bank:tandem-bank-balances-api
+  name: Tandem Bank Balances API
+  description: The Balances API from Tandem Bank — 2 operation(s) for balances.
   humanURL: https://developer.token.io/
   tags:
-  - Confirmation of Funds
-  - CBPII
-  - Open Banking
+  - Balances
   properties:
   - type: OpenAPI
-    url: openapi/obie-standard-confirmation-funds-openapi.yaml
-  - type: Overlay
-    url: overlays/tandem-bank-confirmation-funds-overlay.yaml
+    url: openapi/tandem-bank-balances-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-beneficiaries-api
+  name: Tandem Bank Beneficiaries API
+  description: The Beneficiaries API from Tandem Bank — 2 operation(s) for beneficiaries.
+  humanURL: https://developer.token.io/
+  tags:
+  - Beneficiaries
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-beneficiaries-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-direct-debits-api
+  name: Tandem Bank Direct Debits API
+  description: The Direct Debits API from Tandem Bank — 2 operation(s) for direct debits.
+  humanURL: https://developer.token.io/
+  tags:
+  - Direct Debits
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-direct-debits-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-domestic-payment-consents-api
+  name: Tandem Bank Domestic Payment Consents API
+  description: >-
+    The Domestic Payment Consents API from Tandem Bank — 3 operation(s) for domestic payment consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - Domestic Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-domestic-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-domestic-payments-api
+  name: Tandem Bank Domestic Payments API
+  description: The Domestic Payments API from Tandem Bank — 3 operation(s) for domestic payments.
+  humanURL: https://developer.token.io/
+  tags:
+  - Domestic Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-domestic-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-domestic-scheduled-payment-consents-api
+  name: Tandem Bank Domestic Scheduled Payment Consents API
+  description: >-
+    The Domestic Scheduled Payment Consents API from Tandem Bank — 2 operation(s) for domestic scheduled
+    payment consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - Domestic Scheduled Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-domestic-scheduled-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-domestic-scheduled-payments-api
+  name: Tandem Bank Domestic Scheduled Payments API
+  description: >-
+    The Domestic Scheduled Payments API from Tandem Bank — 3 operation(s) for domestic scheduled payments.
+  humanURL: https://developer.token.io/
+  tags:
+  - Domestic Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-domestic-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-domestic-standing-order-consents-api
+  name: Tandem Bank Domestic Standing Order Consents API
+  description: >-
+    The Domestic Standing Order Consents API from Tandem Bank — 2 operation(s) for domestic standing order
+    consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - Domestic Standing Order Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-domestic-standing-order-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-domestic-standing-orders-api
+  name: Tandem Bank Domestic Standing Orders API
+  description: >-
+    The Domestic Standing Orders API from Tandem Bank — 3 operation(s) for domestic standing orders.
+  humanURL: https://developer.token.io/
+  tags:
+  - Domestic Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-domestic-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-file-payment-consents-api
+  name: Tandem Bank File Payment Consents API
+  description: >-
+    The File Payment Consents API from Tandem Bank — 3 operation(s) for file payment consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - File Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-file-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-file-payments-api
+  name: Tandem Bank File Payments API
+  description: The File Payments API from Tandem Bank — 4 operation(s) for file payments.
+  humanURL: https://developer.token.io/
+  tags:
+  - File Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-file-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-funds-confirmation-consents-api
+  name: Tandem Bank Funds Confirmation Consents API
+  description: >-
+    The Funds Confirmation Consents API from Tandem Bank — 2 operation(s) for funds confirmation consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - Funds Confirmation Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-funds-confirmation-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-funds-confirmations-api
+  name: Tandem Bank Funds Confirmations API
+  description: The Funds Confirmations API from Tandem Bank — 1 operation(s) for funds confirmations.
+  humanURL: https://developer.token.io/
+  tags:
+  - Funds Confirmations
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-funds-confirmations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-international-payment-consents-api
+  name: Tandem Bank International Payment Consents API
+  description: >-
+    The International Payment Consents API from Tandem Bank — 3 operation(s) for international payment
+    consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - International Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-international-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-international-payments-api
+  name: Tandem Bank International Payments API
+  description: >-
+    The International Payments API from Tandem Bank — 3 operation(s) for international payments.
+  humanURL: https://developer.token.io/
+  tags:
+  - International Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-international-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-international-scheduled-payments-api
+  name: Tandem Bank International Scheduled Payments API
+  description: >-
+    The International Scheduled Payments API from Tandem Bank — 3 operation(s) for international scheduled
+    payments.
+  humanURL: https://developer.token.io/
+  tags:
+  - International Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-international-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-international-scheduled-payments-consents-api
+  name: Tandem Bank International Scheduled Payments Consents API
+  description: >-
+    The International Scheduled Payments Consents API from Tandem Bank — 3 operation(s) for international
+    scheduled payments consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - International Scheduled Payments Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-international-scheduled-payments-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-international-standing-orders-api
+  name: Tandem Bank International Standing Orders API
+  description: >-
+    The International Standing Orders API from Tandem Bank — 3 operation(s) for international standing
+    orders.
+  humanURL: https://developer.token.io/
+  tags:
+  - International Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-international-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-international-standing-orders-consents-api
+  name: Tandem Bank International Standing Orders Consents API
+  description: >-
+    The International Standing Orders Consents API from Tandem Bank — 2 operation(s) for international
+    standing orders consents.
+  humanURL: https://developer.token.io/
+  tags:
+  - International Standing Orders Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-international-standing-orders-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-offers-api
+  name: Tandem Bank Offers API
+  description: The Offers API from Tandem Bank — 2 operation(s) for offers.
+  humanURL: https://developer.token.io/
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-offers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-parties-api
+  name: Tandem Bank Parties API
+  description: The Parties API from Tandem Bank — 3 operation(s) for parties.
+  humanURL: https://developer.token.io/
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-parties-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-products-api
+  name: Tandem Bank Products API
+  description: The Products API from Tandem Bank — 2 operation(s) for products.
+  humanURL: https://developer.token.io/
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-scheduled-payments-api
+  name: Tandem Bank Scheduled Payments API
+  description: The Scheduled Payments API from Tandem Bank — 2 operation(s) for scheduled payments.
+  humanURL: https://developer.token.io/
+  tags:
+  - Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-standing-orders-api
+  name: Tandem Bank Standing Orders API
+  description: The Standing Orders API from Tandem Bank — 2 operation(s) for standing orders.
+  humanURL: https://developer.token.io/
+  tags:
+  - Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-statements-api
+  name: Tandem Bank Statements API
+  description: The Statements API from Tandem Bank — 5 operation(s) for statements.
+  humanURL: https://developer.token.io/
+  tags:
+  - Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-statements-api-openapi.yml
+  - type: Documentation
+    url: https://developer.token.io/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: tandem-bank:tandem-bank-transactions-api
+  name: Tandem Bank Transactions API
+  description: The Transactions API from Tandem Bank — 2 operation(s) for transactions.
+  humanURL: https://developer.token.io/
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/tandem-bank-transactions-api-openapi.yml
   - type: Documentation
     url: https://developer.token.io/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: Overlay
+  url: overlays/tandem-bank-account-info-overlay.yaml
+- type: Overlay
+  url: overlays/tandem-bank-payment-initiation-overlay.yaml
+- type: Overlay
+  url: overlays/tandem-bank-confirmation-funds-overlay.yaml
 - type: DomainSecurity
   url: security/tandem-bank-domain-security.yml
 - type: AgenticAccess
