@@ -444,6 +444,9 @@ apis:
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: CapabilityMap
+  url: capabilities/tandem-bank-capability-edges.yml
+  name: Tandem Bank Business Capability Map
 - type: Overlay
   url: overlays/tandem-bank-account-info-overlay.yaml
 - type: Overlay

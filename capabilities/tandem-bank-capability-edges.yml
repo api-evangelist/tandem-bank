@@ -1,0 +1,183 @@
+slug: tandem-bank
+provider: Tandem Bank
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 17
+edges:
+- tag: Domestic Payments
+  spec_file: tandem-bank-domestic-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.95
+  evidence: POST /domestic-payments  "Initiate a Domestic Payment"; schema OBWriteDomestic2, ExternalPaymentTransactionStatus1Code
+  reason: Operations initiate and retrieve domestic payment instructions and their transaction status
+    — payment initiation management, no other reading fits.
+- tag: Domestic Payment Consents
+  spec_file: tandem-bank-domestic-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-payment-consents  "Create a Domestic Payment Consent"; GET .../funds-confirmation  "Confirm
+    availability of funds for a Domestic Payment"
+  reason: Open Banking PIS consent creation with SCA support data and funds-availability confirmation
+    is precisely payment instruction capture, validation and authorisation.
+- tag: Domestic Scheduled Payments
+  spec_file: tandem-bank-domestic-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-scheduled-payments  "Initiate a Domestic Scheduled Payment"
+  reason: Submission and retrieval of future-dated domestic payment instructions with transaction status
+    codes — payment initiation management.
+- tag: Domestic Standing Orders
+  spec_file: tandem-bank-domestic-standing-orders-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-standing-orders  "Submit a Domestic Standing Order"; schema OBWriteDomesticStandingOrder3
+  reason: Submission and retrieval of recurring domestic payment instructions and their payment details
+    — payment initiation management.
+- tag: Domestic Scheduled Payment Consents
+  spec_file: tandem-bank-domestic-scheduled-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /domestic-scheduled-payment-consents  "Create a Domestic Scheduled Payment Consent";
+    schema OBWriteDomesticScheduledConsent4, OBSCASupportData1
+  reason: Consent/authorisation capture for a future-dated domestic payment instruction is payment initiation
+    (capture, validation, authorisation).
+- tag: International Payments
+  spec_file: tandem-bank-international-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.88
+  evidence: POST /international-payments  CreateInternationalPayments  Initiate an International Payment
+  reason: Operations initiate and retrieve international payments with currency and financial-institution
+    identification schemas — clearly cross-border payment management.
+- tag: Domestic Standing Order Consents
+  spec_file: tandem-bank-domestic-standing-order-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /domestic-standing-order-consents  "Create a Domestic Standing Order Consent"; schema
+    OBFrequency6, OBSCASupportData1
+  reason: Consent and SCA capture for a recurring domestic standing order instruction — payment instruction
+    capture and authorisation.
+- tag: International Scheduled Payments
+  spec_file: tandem-bank-international-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.85
+  evidence: POST /international-scheduled-payments  CreateInternationalScheduledPayments  Initiate an
+    International Scheduled Payment
+  reason: Initiation and retrieval of future-dated international payments — cross-border payment management.
+- tag: International Standing Orders
+  spec_file: tandem-bank-international-standing-orders-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.85
+  evidence: POST /international-standing-orders  CreateInternationalStandingOrders  Submit an International
+    Standing Order
+  reason: Submission and retrieval of recurring international payment instructions (OBFrequency6) — cross-border
+    payment management.
+- tag: Products
+  spec_file: tandem-bank-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.85
+  evidence: GET /products  GetProducts  Get Products; schemas OBPCAData1, OBBCAData1, OB_FeeFrequency1Code_1,
+    OB_InterestRateType1Code_1
+  reason: Exposes the bank's personal and business current account product data including fees and interest
+    rate types — a banking product catalogue surface.
+- tag: File Payment Consents
+  spec_file: tandem-bank-file-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: POST /file-payment-consents  "Create a File Payment Consent"; POST /file-payment-consents/{ConsentId}/file  "Upload
+    a File for a ConsentId"
+  reason: Bulk/batch payment file consent and upload for Open Banking payment initiation; file upload
+    here is the payment instruction medium, not generic file handling. Consent + SCA capture places it
+    in payment initiation.
+- tag: File Payments
+  spec_file: tandem-bank-file-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: POST /file-payments  "Submit a File Payment"; GET /file-payments/{FilePaymentId}/report-file
+  reason: Submission of bulk payment files and retrieval of payment details/report files — initiation
+    of batch payment instructions. Could arguably extend to payment processing, but the surface is instruction
+    submission.
+- tag: Parties
+  spec_file: tandem-bank-parties-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.8
+  evidence: GET /party  GetParty  Get Party; schemas OBReadParty2, PartyNumber, FullLegalName, EmailAddress,
+    OBPostalAddress7
+  reason: Returns the account holder / party identity and contact details held by the bank — banking customer
+    information management.
+- tag: International Scheduled Payments Consents
+  spec_file: tandem-bank-international-scheduled-payments-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.78
+  evidence: POST /international-scheduled-payment-consents  CreateInternationalScheduledPaymentConsents  Create
+    an International Scheduled Payment Consent
+  reason: Consent/authorisation surface for international scheduled payments under Open Banking payment
+    initiation; cross-border payment management fits, with some ambiguity versus generic payment initiation.
+- tag: International Standing Orders Consents
+  spec_file: tandem-bank-international-standing-orders-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.78
+  evidence: POST /international-standing-order-consents  CreateInternationalStandingOrderConsents  Create
+    an International Standing Order Consent
+  reason: Consent capture for recurring international payment instructions within the Open Banking Payment
+    Initiation spec — cross-border payments.
+- tag: International Payment Consents
+  spec_file: tandem-bank-international-payment-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.75
+  evidence: POST /international-payment-consents  CreateInternationalPaymentConsents  Create an International
+    Payment Consent ... Confirm Funds Availability for an International Payment
+  reason: Open Banking Payment Initiation consent surface for international (cross-border) payments, including
+    customer authorisation and funds check. Cross-border payment management is the closest fit; alternative
+    reading is generic payment initiation authorisation.
+- tag: Accounts
+  spec_file: tandem-bank-accounts-api-openapi.yml
+  capability_id: BC-1330.10
+  capability_id_l1: BC-1330
+  capability_name: Deposit Account Management
+  confidence: 0.7
+  evidence: 'GET /accounts GetAccounts; schemas: OBInternalAccountType1Code, OBExternalAccountSubType1Code,
+    OBInternalAccountStatus1Code'
+  reason: Open Banking account information for a retail bank's deposit/savings accounts — account master
+    data retrieval under Deposits & Savings Management; sub-capability choice (deposit account vs lifecycle)
+    carries some uncertainty.
