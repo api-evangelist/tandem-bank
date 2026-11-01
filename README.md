@@ -1,4 +1,4 @@
-# Tandem Bank (tandem-bank)
+# Tandem Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,101 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Tandem Bank (Tandem Bank Limited) is a UK app-only challenger and self-styled "greener" digital bank founded in 2014 and headquartered in Blackpool, England. It obtained its UK banking licence through the 2018 acquisition of Harrods Bank and has grown by acquiring Allium Lending Group, Oplo, and Loop Money. Tandem offers savings and cash ISAs, green home-improvement and home loans, mortgages, motor finance, and a credit card. Tandem Bank Limited is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority.
+Tandem Bank (Tandem Bank Limited) is a UK app-only challenger and self-styled "greener" digital bank founded in 2014 and headquartered in Blackpool, England, with offices in Cardiff, Durham, and London. It obtained its UK banking licence through the 2018 acquisition of Harrods Bank and has since grown by acquiring Allium Lending Group, Oplo, and Loop Money, offering savings and cash ISAs, green home-improvement and home loans, mortgages, motor finance, and a credit card. Tandem Bank Limited is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority. It is not one of the CMA9 and does not publish a public Open Data reference API; as an FCA-authorised ASPSP it meets UK Open Banking / PSD2 obligations through a dedicated interface provided by Token, conformant to the Open Banking Implementation Entity (OBIE) Read/Write Standard for Account and Transaction Information (AIS), Payment Initiation (PIS), and Confirmation of Funds (CBPII), secured with FAPI-grade OAuth2/OIDC, mutual-TLS, and PSD2 strong customer authentication. Tandem also consumes Open Banking as a TPP via TrueLayer for savings onboarding and transfers.
 
-Tandem is not one of the CMA9 and does not publish a public Open Data reference API. As an FCA-authorised ASPSP it meets UK Open Banking / PSD2 obligations through a dedicated interface provided by **Token**, conformant to the Open Banking Implementation Entity (OBIE) Read/Write Standard, secured with FAPI-grade OAuth2/OIDC, mutual-TLS, and PSD2 strong customer authentication. Tandem also consumes Open Banking as a third-party provider via TrueLayer for savings onboarding and transfers.
+**Areas:** Financial Services · Banking · Open Banking · PSD2 · OBIE · FAPI · United Kingdom · Payments · Account Information · Challenger Bank · Fintech
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/tandem-bank/refs/heads/main/apis.yml)
+## Tandem Bank on APIs.io
 
-## Tags
+Everything profiled for Tandem Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/tandem-bank/](https://apis.io/providers/tandem-bank/)** — or go straight to one of the APIs or properties below.
 
-- Financial Services
-- Banking
-- Open Banking
-- PSD2
-- OBIE
-- FAPI
-- United Kingdom
-- Payments
-- Account Information
-- Challenger Bank
-- Fintech
+### APIs (28)
 
-## Timestamps
+- [Tandem Bank Account Access Consents API](https://apis.io/apis/tandem-bank/tandem-bank-account-access-consents-api/) — The Account Access Consents API from Tandem Bank — 2 operation(s) for account access consents.
+- [Tandem Bank Accounts API](https://apis.io/apis/tandem-bank/tandem-bank-accounts-api/) — The Accounts API from Tandem Bank — 2 operation(s) for accounts.
+- [Tandem Bank Balances API](https://apis.io/apis/tandem-bank/tandem-bank-balances-api/) — The Balances API from Tandem Bank — 2 operation(s) for balances.
+- [Tandem Bank Beneficiaries API](https://apis.io/apis/tandem-bank/tandem-bank-beneficiaries-api/) — The Beneficiaries API from Tandem Bank — 2 operation(s) for beneficiaries.
+- [Tandem Bank Direct Debits API](https://apis.io/apis/tandem-bank/tandem-bank-direct-debits-api/) — The Direct Debits API from Tandem Bank — 2 operation(s) for direct debits.
+- [Tandem Bank Domestic Payment Consents API](https://apis.io/apis/tandem-bank/tandem-bank-domestic-payment-consents-api/) — The Domestic Payment Consents API from Tandem Bank — 3 operation(s) for domestic payment consents.
+- [Tandem Bank Domestic Payments API](https://apis.io/apis/tandem-bank/tandem-bank-domestic-payments-api/) — The Domestic Payments API from Tandem Bank — 3 operation(s) for domestic payments.
+- [Tandem Bank Domestic Scheduled Payment Consents API](https://apis.io/apis/tandem-bank/tandem-bank-domestic-scheduled-payment-consents-api/) — The Domestic Scheduled Payment Consents API from Tandem Bank — 2 operation(s) for domestic scheduled payment consents.
+- [Tandem Bank Domestic Scheduled Payments API](https://apis.io/apis/tandem-bank/tandem-bank-domestic-scheduled-payments-api/) — The Domestic Scheduled Payments API from Tandem Bank — 3 operation(s) for domestic scheduled payments.
+- [Tandem Bank Domestic Standing Order Consents API](https://apis.io/apis/tandem-bank/tandem-bank-domestic-standing-order-consents-api/) — The Domestic Standing Order Consents API from Tandem Bank — 2 operation(s) for domestic standing order consents.
+- [Tandem Bank Domestic Standing Orders API](https://apis.io/apis/tandem-bank/tandem-bank-domestic-standing-orders-api/) — The Domestic Standing Orders API from Tandem Bank — 3 operation(s) for domestic standing orders.
+- [Tandem Bank File Payment Consents API](https://apis.io/apis/tandem-bank/tandem-bank-file-payment-consents-api/) — The File Payment Consents API from Tandem Bank — 3 operation(s) for file payment consents.
+- [Tandem Bank File Payments API](https://apis.io/apis/tandem-bank/tandem-bank-file-payments-api/) — The File Payments API from Tandem Bank — 4 operation(s) for file payments.
+- [Tandem Bank Funds Confirmation Consents API](https://apis.io/apis/tandem-bank/tandem-bank-funds-confirmation-consents-api/) — The Funds Confirmation Consents API from Tandem Bank — 2 operation(s) for funds confirmation consents.
+- [Tandem Bank Funds Confirmations API](https://apis.io/apis/tandem-bank/tandem-bank-funds-confirmations-api/) — The Funds Confirmations API from Tandem Bank — 1 operation(s) for funds confirmations.
+- [Tandem Bank International Payment Consents API](https://apis.io/apis/tandem-bank/tandem-bank-international-payment-consents-api/) — The International Payment Consents API from Tandem Bank — 3 operation(s) for international payment consents.
+- [Tandem Bank International Payments API](https://apis.io/apis/tandem-bank/tandem-bank-international-payments-api/) — The International Payments API from Tandem Bank — 3 operation(s) for international payments.
+- [Tandem Bank International Scheduled Payments API](https://apis.io/apis/tandem-bank/tandem-bank-international-scheduled-payments-api/) — The International Scheduled Payments API from Tandem Bank — 3 operation(s) for international scheduled payments.
+- [Tandem Bank International Scheduled Payments Consents API](https://apis.io/apis/tandem-bank/tandem-bank-international-scheduled-payments-consents-api/) — The International Scheduled Payments Consents API from Tandem Bank — 3 operation(s) for international scheduled payments consents.
+- [Tandem Bank International Standing Orders API](https://apis.io/apis/tandem-bank/tandem-bank-international-standing-orders-api/) — The International Standing Orders API from Tandem Bank — 3 operation(s) for international standing orders.
+- [Tandem Bank International Standing Orders Consents API](https://apis.io/apis/tandem-bank/tandem-bank-international-standing-orders-consents-api/) — The International Standing Orders Consents API from Tandem Bank — 2 operation(s) for international standing orders consents.
+- [Tandem Bank Offers API](https://apis.io/apis/tandem-bank/tandem-bank-offers-api/) — The Offers API from Tandem Bank — 2 operation(s) for offers.
+- [Tandem Bank Parties API](https://apis.io/apis/tandem-bank/tandem-bank-parties-api/) — The Parties API from Tandem Bank — 3 operation(s) for parties.
+- [Tandem Bank Products API](https://apis.io/apis/tandem-bank/tandem-bank-products-api/) — The Products API from Tandem Bank — 2 operation(s) for products.
+- [Tandem Bank Scheduled Payments API](https://apis.io/apis/tandem-bank/tandem-bank-scheduled-payments-api/) — The Scheduled Payments API from Tandem Bank — 2 operation(s) for scheduled payments.
+- [Tandem Bank Standing Orders API](https://apis.io/apis/tandem-bank/tandem-bank-standing-orders-api/) — The Standing Orders API from Tandem Bank — 2 operation(s) for standing orders.
+- [Tandem Bank Statements API](https://apis.io/apis/tandem-bank/tandem-bank-statements-api/) — The Statements API from Tandem Bank — 5 operation(s) for statements.
+- [Tandem Bank Transactions API](https://apis.io/apis/tandem-bank/tandem-bank-transactions-api/) — The Transactions API from Tandem Bank — 2 operation(s) for transactions.
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Tandem Bank Account and Transaction Information API (AIS)
+#### MCP servers (1)
 
-Open Banking Account Information Service exposing account, balance, transaction, and product data for Tandem's credit card and savings products, via the Token-provided PSD2 dedicated interface, conformant to the OBIE Read/Write Account and Transaction API Standard.
+Model Context Protocol servers that expose the API to agents.
 
-- **Human URL:** [https://developer.token.io/](https://developer.token.io/)
+- [tandem-bank](https://apis.io/servers/tandem-bank/tandem-bank/)
 
-#### Tags
+#### Agentic access (1)
 
-- Account Information
-- AISP
-- Open Banking
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Properties
+- [Tandem Bank Agentic Access](https://apis.io/agentic-access/tandem-bank/tandem-bank-agentic-access/)
 
-- [OpenAPI](openapi/obie-standard-account-info-openapi.yaml) — shared OBIE standard specification (not a Tandem-proprietary contract)
-- [Documentation](https://developer.token.io/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
+#### Overlays (3)
 
-### Tandem Bank Payment Initiation API (PIS)
+OpenAPI overlays, including conversational phrasing for each operation.
 
-Open Banking Payment Initiation Service for initiating payments against Tandem accounts, via the Token-provided PSD2 dedicated interface, conformant to the OBIE Read/Write Payment Initiation API Standard.
+- [Tandem Bank Account Info Overlay](https://apis.io/overlays/tandem-bank/tandem-bank-account-info-overlay/)
+- [Tandem Bank Confirmation Funds Overlay](https://apis.io/overlays/tandem-bank/tandem-bank-confirmation-funds-overlay/)
+- [Tandem Bank Payment Initiation Overlay](https://apis.io/overlays/tandem-bank/tandem-bank-payment-initiation-overlay/)
 
-- **Human URL:** [https://developer.token.io/](https://developer.token.io/)
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Payment Initiation
-- PISP
-- Open Banking
+- [Tandem Bank Authentication](https://apis.io/security/tandem-bank/tandem-bank-authentication/)
+- [Tandem Bank Domain Security](https://apis.io/security/tandem-bank/tandem-bank-domain-security/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [OpenAPI](openapi/obie-standard-payment-initiation-openapi.yaml) — shared OBIE standard specification (not a Tandem-proprietary contract)
-- [Documentation](https://developer.token.io/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
+The permissions the API asks for.
 
-### Tandem Bank Confirmation of Funds API (CBPII)
+- [Tandem Bank Scopes](https://apis.io/scopes/tandem-bank/tandem-bank-scopes/)
 
-Open Banking Confirmation of Funds Service allowing card-based payment instrument issuers to confirm availability of funds, via the Token-provided PSD2 dedicated interface, conformant to the OBIE Read/Write Confirmation of Funds API Standard.
+## Where to find this API
 
-- **Human URL:** [https://developer.token.io/](https://developer.token.io/)
-
-#### Tags
-
-- Confirmation of Funds
-- CBPII
-- Open Banking
-
-#### Properties
-
-- [OpenAPI](openapi/obie-standard-confirmation-funds-openapi.yaml) — shared OBIE standard specification (not a Tandem-proprietary contract)
-- [Documentation](https://developer.token.io/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.tandem.co.uk/)
-- [Open Banking](https://www.tandem.co.uk/save/open-banking-page)
-- [Developer Portal](https://developer.token.io/)
-- [API Standard](https://github.com/OpenBankingUK/read-write-api-specs)
-- [LinkedIn](https://www.linkedin.com/company/tandem-bank/)
-- [Blog](https://www.tandem.co.uk/blog)
-- [Newsroom](https://www.tandem.co.uk/newsroom)
+- [Getting started](https://developer.token.io/token_tpp_sdk_doc/content/a-tpp_onboarding/sdk_intro.htm)
 - [Support](https://www.tandem.co.uk/support)
-- [Privacy Notice](https://www.tandem.co.uk/privacy-notice)
-- [About](https://www.tandem.co.uk/about)
+- [Blog](https://www.tandem.co.uk/blog)
+- [Privacy policy](https://www.tandem.co.uk/privacy-notice)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 36.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 70.5 |
+| Contract quality | 49.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 10.5 |
+
+**Agent readiness 35.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | verified |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.9** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/tandem-bank/](https://apis.io/providers/tandem-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Tandem Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/tandem-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
